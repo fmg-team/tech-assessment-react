@@ -12,20 +12,23 @@ export default function App() {
       const res = await Axios.get(
         'https://springbokmagazine.com/api/publications?isPreview=false&issuePermalink=issue-51&permalink=springbokmagazine.com'
       );
-      console.log('axios');
       if (res?.data?.issues[0]?.pages) {
         setPages(res?.data?.issues[0]?.pages);
       }
     }
     callApi();
   }, []);
+  function removeOne(e) {
+    pages.splice(0, 1);
+    setPages([...pages]);
+  }
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
+    <div onClick={removeOne}>
+      <h1 onClick={removeOne}>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
       <p>{pages.length} pages</p>
       {pages.map((page) => {
-        return <div>{page.title}</div>;
+        return <div key={page._id}>{page.title}</div>;
       })}
     </div>
   );
