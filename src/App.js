@@ -24,7 +24,7 @@ export default function App() {
   }
   return (
     <div onClick={removeOne}>
-      <h1 onClick={removeOne}>Hello StackBlitz!</h1>
+      <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
       <p>{pages.length} pages</p>
       {pages.map((page) => {
